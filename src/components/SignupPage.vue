@@ -1,16 +1,21 @@
 <template>
     <div>
-        <v-container>
-        <v-card>
-            <v-card-title>Signup</v-card-title>
+        <v-container class="container">
+        <v-card 
+        elevation="12" 
+        dark
+        >
+            <v-card-title class="orange--text text-center">Signup</v-card-title>
 
         <v-text-field
+            class="orange--text text-center"
             outlined
             v-model="username"
             append-outer-icon="mdi-account"
             label="Enter Username"
         ></v-text-field>
         <v-text-field
+            class="orange--text text-center"
             outlined
             v-model="email"
             append-outer-icon="mdi-email"
@@ -18,6 +23,7 @@
             required
         ></v-text-field>
         <v-text-field
+            class="orange--text text-center"
             outlined
             v-model="password"
             append-outer-icon="mdi-lock"
@@ -26,18 +32,21 @@
             hint="At least 8 characters"
         ></v-text-field>
         <v-text-field
+            class="orange--text text-center"
             outlined
             v-model="profileUrl"
             append-outer-icon="mdi-account-tie"
             label="Profile Picture URL"
         ></v-text-field>
         <v-text-field
+            class="orange--text text-center"
             outlined
             v-model="bannerUrl"
             append-outer-icon="mdi-account-tie"
             label="Banner URL"
         ></v-text-field>
         <v-btn 
+        class="orange--text"
         elevation="9"
         @click="handleUserCreated"
         >
@@ -73,5 +82,7 @@ import { mapActions } from 'pinia'
 </script>
 
 <style lang="scss" scoped>
-
+    .container {
+        height: 850px;
+    }
 </style>

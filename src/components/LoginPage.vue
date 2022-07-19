@@ -1,20 +1,26 @@
 <template>
-    <div>
-        <v-card>
+    <div class="container">
+        <v-card 
+        class="mt-4" 
+        elevation="12"
+        dark
+        >
         
-        <v-card-title>Login</v-card-title>
+        <v-card-title class="orange--text text-center">Login</v-card-title>
 
         <v-text-field
+        class="orange--text"
+        outlined
         v-model="email"
         label="Enter Email"
-        append-outer-icon="mdi-email"
         ></v-text-field>
         <v-text-field 
+        class="orange--text"
+        outlined
         v-model="password"
         label="Enter Password"
-        append-outer-icon="mdi-lock"
         ></v-text-field>
-        <v-btn @click="handleUserLogin">
+        <v-btn class="orange--text" @click="handleUserLogin">
             Login
         </v-btn>
         </v-card>
@@ -41,5 +47,7 @@ import { mapActions } from 'pinia'
 </script>
 
 <style lang="scss" scoped>
-
+    .container {
+        height: 700px;
+    }
 </style>

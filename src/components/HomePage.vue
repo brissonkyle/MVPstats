@@ -1,43 +1,29 @@
 <template>
-<v-img src="src\assets\west-studio-weststudio-lol-splash-09.jpg">
-  <v-container>
-    <v-card>
-      <v-toolbar 
-    dark
-    >
-    <v-spacer></v-spacer>
-      <v-toolbar-title class="orange--text">MVP STATS</v-toolbar-title>
-      <v-spacer></v-spacer>
-
-      <template v-slot:extension>
-        <v-tabs centered>
-          <v-tabs-slider slider-size="2" color="red"></v-tabs-slider>
-          <v-tab class="orange--text">
-            Home
-          </v-tab>
-          <v-tab class="orange--text">
-            Login
-          </v-tab>
-          <v-tab class="orange--text">
-            Signup
-          </v-tab>
-        </v-tabs>
-      </template>
-    </v-toolbar>
-    </v-card>
-    <v-card dark class="mt-6" elevation="8">
-      <v-card-title class="orange--text">Welcome To MVP Stats</v-card-title>
-      <v-text-field 
-      v-model="summonerName"
-      outlined
-      label="Search a Summoner Name..."
-      >
-      </v-text-field>
-      <v-btn @click="handleUserPuuid" dark>Set Name</v-btn>
-      <v-btn dark @click="handleMatchId">See Stats</v-btn>
-    </v-card>
-  </v-container>
-</v-img>
+<div>
+  <v-container class="container">
+    <v-card dark class="mt-10" elevation="8">
+        <v-card-title class="orange--text justify-center"><h1>Welcome To MVP Stats</h1></v-card-title>
+        <v-card-subtitle class="orange--text text-center mt-1">A. PLACE. TO. IMPROVE. THROUGH. STAT. TRACKING.</v-card-subtitle>
+        <v-row align="center">
+        <v-img class="ml-6 mr-6 mb-6"
+        width="50px"
+        height="200px"
+        src="https://cdnb.artstation.com/p/assets/images/images/023/263/365/large/west-studio-fantasy-env-color-8jan2020.jpg?1578626657">
+        </v-img>
+        </v-row>
+        <v-text-field v-on:mouseout="nameAlert = true" 
+        class="orange--text text-center"
+        v-model="summonerName"
+        outlined
+        label="Search a Summoner Name..."
+        >
+        </v-text-field>
+        <v-alert dense type="success" v-model="notify" dismissible>Name Set.. To Continue Click See Stats</v-alert>
+        <v-btn class="orange--text" v-on:click="notify = true" @click="handleUserPuuid" dark>Set Name</v-btn>
+        <v-btn class="orange--text" dark @click="handleMatchId">See Stats</v-btn>
+      </v-card>
+    </v-container>
+</div>
 </template>
 
 <script>
@@ -52,7 +38,8 @@ import { useApiStore } from '@/stores/apistore'
 
     
     data: () => ({
-      summonerName : ''
+      summonerName : '',
+      notify : false,
     }),
 
     methods: {
@@ -67,3 +54,9 @@ import { useApiStore } from '@/stores/apistore'
     },
   }
 </script>
+
+<style  scoped>
+  .container {
+    height: 940px;
+  }
+</style>
