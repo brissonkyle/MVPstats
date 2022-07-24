@@ -6,9 +6,9 @@
             v-for="data in userData" :key="data.id"
             class="mx-auto"
         >
-            <v-img :src="data.profileUrl" width="300px" height="200px"></v-img>
             <v-img :src="data.bannerUrl" width="100%" height="200px">
-            <v-card-title class="justify-center orange--text">{{data.username}}</v-card-title>
+                <span><v-card-title class="justify-center orange--text">{{data.username}}</v-card-title></span>
+            <v-img :src="data.profileUrl" width="300px" height="200px"></v-img>
         </v-img>
 
         <v-btn
