@@ -45,10 +45,12 @@ import axios from 'axios'
             participantData : [{}]
         }),
 
+
+            // GRABBING LIVE STATS FROM RIOT SPECTATOR API
         methods: {
             async userLiveStats(){
                 axios.request({
-                    url : 'https://na1.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/zwsZ1FUmT-xjnz-YQHsbmXIrtOHDj_pIMvvZHWR5xYdgqHQ?api_key=RGAPI-21ec27d9-df3c-46ef-9dbc-5ff6eefd4bae',
+                    url : `${process.env.VUE_APP_RIOT_API_URL_LIVE_STATS}` + 'zwsZ1FUmT-xjnz-YQHsbmXIrtOHDj_pIMvvZHWR5xYdgqHQ' + `${process.env.VUE_APP_RIOT_API_KEY}`,
                     method : 'GET',
 
                 }).then((response)=>{

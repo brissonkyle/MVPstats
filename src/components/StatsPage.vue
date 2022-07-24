@@ -82,15 +82,17 @@ import axios from 'axios'
         methods: {
 
         },
+
+        // GRABBING STATS FROM RIOT MATCH API
         mounted () {
-                axios.get('https://americas.api.riotgames.com/lol/match/v5/matches/NA1_4369008847?api_key=RGAPI-21ec27d9-df3c-46ef-9dbc-5ff6eefd4bae')
+                axios.get(`${process.env.VUE_APP_RIOT_API_URL_MATCH}` + 'NA1_4369008847' + `${process.env.VUE_APP_RIOT_API_KEY}`)
                 .then((response) => {
                         this.matchData = response.data
                         console.log(response.data)
                 }).catch((error)=>{
                         console.log(error);
                 }),
-                axios.get('https://americas.api.riotgames.com/lol/match/v5/matches/NA1_4369008847?api_key=RGAPI-21ec27d9-df3c-46ef-9dbc-5ff6eefd4bae')
+                axios.get(`${process.env.VUE_APP_RIOT_API_URL_MATCH}` + 'NA1_4369008847' + `${process.env.VUE_APP_RIOT_API_KEY}`)
                 .then((response) => {
                         this.participantData = response.data.info.participants
                         console.log(response.data)

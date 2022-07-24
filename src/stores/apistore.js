@@ -21,7 +21,7 @@ export const useApiStore = defineStore('api',{
         // USER CREATION API
         async userCreateApi( username, email, password, profileUrl, bannerUrl) {
             axios.request({
-                url : 'http://127.0.0.1:5000' + '/api/user',
+                url : `${process.env.VUE_APP_API_URL}` + '/api/user',
                 method : 'POST',
                 data : {
                     username,
@@ -42,7 +42,7 @@ export const useApiStore = defineStore('api',{
         // USER LOGIN API
         async userLoginApi( email, password ) {
             axios.request({
-                url : 'http://127.0.0.1:5000' + '/api/user-login',
+                url : `${process.env.VUE_APP_API_URL}` + '/api/user-login',
                 method : 'POST',
                 data : {
                     email,
@@ -61,7 +61,7 @@ export const useApiStore = defineStore('api',{
         // USER GET FOR PROFILE PAGE
         async userGet(email,password){
             axios.request({
-                url :'http://127.0.0.1:5000' + '/api/user',
+                url :`${process.env.VUE_APP_API_URL}` + '/api/user',
                 method : 'GET',
                 data: {
                     email,
@@ -77,7 +77,7 @@ export const useApiStore = defineStore('api',{
         // GRABBING PUUID TO GET MATCH DATA FROM RIOT API
         async getUserPuuid( summonerName ) {
             axios.request({
-                url : 'https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + summonerName + '?api_key=RGAPI-21ec27d9-df3c-46ef-9dbc-5ff6eefd4bae',
+                url : `${process.env.VUE_APP_RIOT_API_URL_BY_NAME}` + summonerName + `${process.env.VUE_APP_RIOT_API_KEY}`,
                 method : 'GET',
                 data : {
                     summonerName
@@ -95,7 +95,7 @@ export const useApiStore = defineStore('api',{
         // GRABBING MATCH ID'S FROM RIOT API
         async getMatchId() {
             axios.request({
-                url : 'https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/'+ cookies.get('Puuid') + '/ids?start=0&count=5&api_key=RGAPI-21ec27d9-df3c-46ef-9dbc-5ff6eefd4bae',
+                url : `${process.env.VUE_APP_RIOT_API_URL_MATCH_PUUID}` + cookies.get('Puuid') + '/ids?start=0&count=5&' + `${process.env.VUE_APP_RIOT_API_KEY}`,
                 method : 'GET'
             }).then((response)=>{
                 console.log(response)
@@ -111,7 +111,7 @@ export const useApiStore = defineStore('api',{
         // GRABBING MATCH INFO TO PULL STATS
         async getMatchInfo() {
             axios.request({
-                url : 'https://americas.api.riotgames.com/lol/match/v5/matches/'+ cookies.get('MatchId') +'?api_key=RGAPI-21ec27d9-df3c-46ef-9dbc-5ff6eefd4bae',
+                url : `${process.env.VUE_APP_RIOT_API_URL_MATCH}` + cookies.get('MatchId') + `${process.env.VUE_APP_RIOT_API_KEY}`,
                 method : 'GET',
                 data() {
                     return {
