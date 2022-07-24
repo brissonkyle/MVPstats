@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import axios from "axios";
 import cookies  from 'vue-cookies';
 import router from "@/router";
-// import router from "@/router";
+
 
 export const useApiStore = defineStore('api',{
     state : () => {
@@ -30,7 +30,7 @@ export const useApiStore = defineStore('api',{
                 }
             }).then((response)=>{
                 console.log(response);
-                // router.push('HomeView')
+                router.push('/')
             }).catch((error)=> {
                 console.log(error);
                 this.userCreateAlert(error.response)
@@ -49,17 +49,33 @@ export const useApiStore = defineStore('api',{
             }).then((response)=>{
                 cookies.set('userSessionToken', response.data.token)
                 console.log(cookies.get('userSessionToken'));
-                // router.push('HomeView')
+                router.push('/Profile')
             }).catch((error)=> {
                 console.log(error);
                 this.userCreateAlert(error.response)
+            })
+        },
+
+        // USER GET FOR PROFILE PAGE
+        async userGet(email,password){
+            axios.request({
+                url :'http://127.0.0.1:5000' + '/api/user',
+                method : 'GET',
+                data: {
+                    email,
+                    password
+                }
+            }).then((response)=>{
+                console.log(response)
+            }).catch((error)=>{
+                console.log(error);
             })
         },
         
         // GRABBING PUUID TO GET MATCH DATA FROM RIOT API
         async getUserPuuid( summonerName ) {
             axios.request({
-                url : 'https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + summonerName + '?api_key=RGAPI-55c70244-a116-40c6-af03-1b3d89f0c066',
+                url : 'https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + summonerName + '?api_key=RGAPI-21ec27d9-df3c-46ef-9dbc-5ff6eefd4bae',
                 method : 'GET',
                 data : {
                     summonerName
@@ -77,7 +93,7 @@ export const useApiStore = defineStore('api',{
         // GRABBING MATCH ID'S FROM RIOT API
         async getMatchId() {
             axios.request({
-                url : 'https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/'+ cookies.get('Puuid') + '/ids?start=0&count=1&api_key=RGAPI-55c70244-a116-40c6-af03-1b3d89f0c066',
+                url : 'https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/'+ cookies.get('Puuid') + '/ids?start=0&count=5&api_key=RGAPI-21ec27d9-df3c-46ef-9dbc-5ff6eefd4bae',
                 method : 'GET'
             }).then((response)=>{
                 console.log(response)
@@ -93,10 +109,11 @@ export const useApiStore = defineStore('api',{
         // GRABBING MATCH INFO TO PULL STATS
         async getMatchInfo() {
             axios.request({
-                url : 'https://americas.api.riotgames.com/lol/match/v5/matches/'+ cookies.get('MatchId') +'?api_key=RGAPI-55c70244-a116-40c6-af03-1b3d89f0c066',
+                url : 'https://americas.api.riotgames.com/lol/match/v5/matches/'+ cookies.get('MatchId') +'?api_key=RGAPI-21ec27d9-df3c-46ef-9dbc-5ff6eefd4bae',
                 method : 'GET',
                 data() {
                     return {
+                        cookie:  cookies.get('matchid'),
                         matchData: []
                     }
                 },

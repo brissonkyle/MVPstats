@@ -1,7 +1,9 @@
 <template>
-    <div>
+    <div class="py-12">
         <v-footer
+        height="200"
     absolute
+    app
     dark
     elevation="12"
     padless
@@ -14,32 +16,26 @@
     >
     <v-card-text>
         <v-btn
-        class="ma-2"
-        fab
+        class="ma-2 orange--text"
+        
         >
-        FB</v-btn>
+        <a style="text-decoration: none; color: inherit;" target="_blank" href="https://facebook.com">Facebook</a></v-btn>
         <v-btn
-        fab
+        class="orange--text"
         >
-        IG</v-btn>
+        <a style="text-decoration: none; color: inherit;" target="_blank" href="https://instagram.com">Instagram</a></v-btn>
         <v-btn
-        class="ma-2"
+        class="ma-2 orange--text"
         >
-        Email Us</v-btn>
-        <v-btn
-        class="ma-2"
-        >
-        Contact Us</v-btn>
+        <a style="text-decoration: none; color: inherit;" target="_blank" href="https://outlook.com">CONTACT US</a></v-btn>
     </v-card-text>
 
     <v-card-text class="orange--text pt-0">
-        WE WELCOME YOU TO TRY OUR STAT TRACKING WEBSITE IN HOPES THAT YOU GET A BETTER GAMEPLAY EXPERIENCE THROUGH THE KNOWLEDGE OF STAT TRACKING IN LEAGUE OF LEGENDS. WE DO NOT OWN ANY RIGHTS TO ANYTHING IN REGARD TO RIOT GAMES AND ITS ASSETS. ALL IMAGES SOUCRED FROM WEST STUDIO (VISUAL DEVELOPMENT STUDIO). <p>GLHF.</p> <p> 2022 MVP Stats</p>
+        WE WELCOME YOU TO TRY OUR STAT TRACKING WEBSITE IN HOPES THAT YOU GET A BETTER GAMEPLAY EXPERIENCE THROUGH THE KNOWLEDGE OF STAT TRACKING IN LEAGUE OF LEGENDS. WE DO NOT OWN ANY RIGHTS TO ANYTHING IN REGARD TO RIOT GAMES AND ITS ASSETS. ALL IMAGES SOURCED FROM WEST STUDIO (VISUAL DEVELOPMENT STUDIO). <p>GLHF.</p>
     </v-card-text>
-
     <v-divider></v-divider>
-
     <v-card-text class="orange--text">
-        <h2>MVP Stats</h2> 
+        <h2>2022 MVP Stats</h2> 
         <p>A. Place. To. Improve.</p>
     </v-card-text>
     </v-card>

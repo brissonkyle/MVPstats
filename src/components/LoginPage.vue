@@ -23,6 +23,7 @@
         <v-btn class="orange--text" @click="handleUserLogin">
             Login
         </v-btn>
+        <span class="signup"><span class="pr-4 orange--text">Dont have an account ?</span><v-btn><router-link to="/Signup" class="orange--text" style="text-decoration: none; color: inherit;">Sign Up</router-link></v-btn></span>
         </v-card>
     </div>
 </template>
@@ -48,6 +49,9 @@ import { mapActions } from 'pinia'
 
 <style lang="scss" scoped>
     .container {
-        height: 700px;
+        height: 70vh;
+    }
+    .signup {
+        float: right;
     }
 </style>

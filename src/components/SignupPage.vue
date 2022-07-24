@@ -50,7 +50,7 @@
         elevation="9"
         @click="handleUserCreated"
         >
-            Create
+            <span class="name">Create</span>
         </v-btn>
         </v-card>
         </v-container>
@@ -83,6 +83,6 @@ import { mapActions } from 'pinia'
 
 <style lang="scss" scoped>
     .container {
-        height: 850px;
+        height: 700px;
     }
 </style>

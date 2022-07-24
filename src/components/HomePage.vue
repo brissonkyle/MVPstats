@@ -57,6 +57,6 @@ import { useApiStore } from '@/stores/apistore'
 
 <style  scoped>
   .container {
-    height: 940px;
+    height: 110vh;
   }
 </style>

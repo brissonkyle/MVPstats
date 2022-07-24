@@ -18,6 +18,9 @@
         <v-tab class="orange--text">
             <router-link style="text-decoration: none; color: inherit;" to="/Login">Login</router-link>
         </v-tab>
+        <v-tab class="orange--text">
+            <router-link style="text-decoration: none; color: inherit;" to="/Profile">Profile</router-link>
+        </v-tab>
         </v-tabs>
     </template>
     </v-toolbar>
