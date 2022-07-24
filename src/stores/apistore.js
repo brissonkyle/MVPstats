@@ -4,6 +4,8 @@ import cookies  from 'vue-cookies';
 import router from "@/router";
 
 
+// MUST GET AN API KEY FROM RIOT
+
 export const useApiStore = defineStore('api',{
     state : () => {
         return {

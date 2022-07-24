@@ -68,6 +68,8 @@
 </template>
 
 <script>
+
+// NEED AN API KEY FROM RIOT 
 import axios from 'axios'
         export default {
 
